@@ -1,0 +1,71 @@
+---
+title: "Lab 4"
+author: "Kempeneers Stef"
+date: "17 November 2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Our Location
+
+```{r echo = TRUE, warning=FALSE}
+library(leaflet)
+
+EAIcon <- makeIcon(
+  iconUrl = "https://www.pxl.be/Assets/website/pxl_algemeen/afbeeldingen/grotere_versie/1314_logo_pxl_tech.png?hid=img;h=50;",
+  iconWidth = 160, iconHeight = 100,
+  iconAnchorX = 22, iconAnchorY = 94
+)
+
+MADIcon <- makeIcon(
+  iconUrl = "https://www.pxl.be/Assets/website/pxl_algemeen/afbeeldingen/grotere_versie/1314_logo_pxl_mad.png?hid=img;h=50;",
+  iconWidth = 160, iconHeight = 100,
+  iconAnchorX = 22, iconAnchorY = 94
+)
+
+BuisIcon <- makeIcon(
+  iconUrl = "https://www.pxl.be/Assets/website/pxl_algemeen/afbeeldingen/grotere_versie/1314_logo_pxl_business.png?hid=img;h=50;",
+  iconWidth = 160, iconHeight = 100,
+  iconAnchorX = 22, iconAnchorY = 94
+)
+
+EDUIcon <- makeIcon(
+  iconUrl = "https://www.pxl.be/Assets/website/pxl_algemeen/afbeeldingen/grotere_versie/1314_logo_pxl_education.png?hid=img;h=50;",
+  iconWidth = 160, iconHeight = 100,
+  iconAnchorX = 22, iconAnchorY = 94
+)
+
+HealthIcon <- makeIcon(
+  iconUrl = "https://www.pxl.be/Assets/website/pxl_algemeen/afbeeldingen/grotere_versie/1314_logo_pxl_healthcare.png?hid=img;h=50;",
+  iconWidth = 160, iconHeight = 100,
+  iconAnchorX = 22, iconAnchorY = 94
+)
+
+MusicIcon <- makeIcon(
+  iconUrl = "https://www.pxl.be/Assets/website/pxl_algemeen/afbeeldingen/grotere_versie/1314_logo_pxl_music.png?hid=img;h=50;",
+  iconWidth = 160, iconHeight = 100,
+  iconAnchorX = 22, iconAnchorY = 94
+)
+
+EA_map <- leaflet() %>% 
+  addTiles() %>%
+  addMarkers(lng=5.384984, lat=50.927781, icon = EAIcon) %>%
+
+  addMarkers(lng=5.351241, lat=50.937109, icon = MADIcon) %>%
+
+  addMarkers(lng=5.348321, lat=50.938146, icon = BuisIcon) %>%
+
+  addMarkers(lng=5.345133, lat=50.935089, icon = EDUIcon) %>%
+
+  addMarkers(lng=5.342497, lat=50.927814, icon = HealthIcon) %>%
+
+addMarkers(lng=5.347829, lat=50.937643, icon = MusicIcon)
+
+
+EA_map
+
+```
+
